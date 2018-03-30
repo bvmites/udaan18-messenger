@@ -11,7 +11,7 @@ class SelectedParticipantsList extends Component {
           <TableHeader labels={['Name', 'Phone']} />
           <tbody>
             {participants.map(p =>
-              (<TableRow>
+              (<TableRow key={p._id}>
                 <td>{p.name}</td>
                 <td>{p.phone}</td>
               </TableRow>)

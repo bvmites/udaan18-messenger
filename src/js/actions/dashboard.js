@@ -18,17 +18,34 @@ export function loadDashboard(eventId) {
         dispatch({ type: EVENT_DATA_FETCHED, payload: eventDetails });
       })
       .catch((error) => {
-        // TODO handle error properly
-        dispatch({ type: EVENT_DATA_FETCH_ERROR, payload: error });
+        if (error.json) {
+          dispatch({
+            type: EVENT_DATA_FETCH_ERROR,
+            error: error.json().message
+          });
+        } else {
+          dispatch({
+            type: EVENT_DATA_FETCH_ERROR,
+            error: 'Network error'
+          });
+        }
       });
     getParticipants(eventId)
       .then((participants) => {
         dispatch({ type: PARTICIPANT_DATA_FETCHED, payload: { participants } });
       })
       .catch((error) => {
-        // TODO
-        console.log(error);
-        dispatch({ type: PARTICIPANT_DATA_FETCH_ERROR, error });
+        if (error.json) {
+          return error.json().then(errObj =>
+            dispatch({
+              type: PARTICIPANT_DATA_FETCH_ERROR,
+              error: errObj.message
+            }));
+        }
+        return dispatch({
+          type: PARTICIPANT_DATA_FETCH_ERROR,
+          error: 'Network Error'
+        });
       });
   };
 }

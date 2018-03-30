@@ -1,6 +1,6 @@
 import { announcePageLoaded } from 'grommet/utils/Announcer';
 
-const DEFAULT_TITLE = 'Grommet Test';
+const DEFAULT_TITLE = 'Udaan18 Messaging App';
 
 export function pageLoaded(title) {
   if (document) {

@@ -9,7 +9,6 @@ import Section from 'grommet/components/Section';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
 import Footer from 'grommet/components/Footer';
-import Logo from 'grommet/components/icons/Grommet';
 
 
 import { login } from '../actions/session';
@@ -61,9 +60,8 @@ class Login extends Component {
           <span />
           <LoginForm
             align='start'
-            logo={<Logo className='logo' colorIndex='brand' />}
             title='Udaan18 Messenger'
-            onSubmit={isLoggingIn ? undefined : this._onSubmit}
+            onSubmit={isLoggingIn ? null : this._onSubmit}
             errors={[error]}
             usernameType='text'
           />

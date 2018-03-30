@@ -9,9 +9,19 @@ export function loadEvent(eventId, done) {
         dispatch({ type: EVENT_DATA_FETCHED, payload });
         done();
       })
-      .catch(error => dispatch({
-        type: EVENT_DATA_FETCH_ERROR,
-        error
-      }));
+      .catch((error) => {
+        if (error.json) {
+          return error.json().then(errObj =>
+            dispatch({
+              type: EVENT_DATA_FETCH_ERROR,
+              error: errObj.message
+            }));
+        }
+        return dispatch({
+          type: EVENT_DATA_FETCH_ERROR,
+          error: 'Network Error'
+        });
+      });
   };
 }
+

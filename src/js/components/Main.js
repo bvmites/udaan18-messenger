@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import io from 'socket.io-client';
+
+import { apiBaseUrl } from '../config';
 
 import App from 'grommet/components/App';
 import Split from 'grommet/components/Split';
-
 
 import Login from '../screens/Login';
 import Dashboard from '../screens/Dashboard';
 import NotFound from '../screens/NotFound';
 import Promote from '../screens/Promote';
+import { connect } from 'react-redux';
+import { updateDeliveryStatus } from '../actions/participants';
 
 class Main extends Component {
   constructor() {
     super();
+  }
+
+  componentDidMount() {
+    const socketClient = io(`${apiBaseUrl}/receipts`);
+    const { dispatch } = this.props;
+    socketClient.on('connect', () => console.log('Connected.'));
+    socketClient.on('receipt', (receipt) => {
+      console.log('RECEIPT', receipt);
+      const { customID, number, status } = receipt;
+      if (customID && customID === this.props.eventId) {
+        console.log('UPDATE');
+        dispatch(updateDeliveryStatus(number.slice(2), status));
+      }
+    });
   }
 
   render() {
@@ -36,4 +54,8 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = state => ({
+  eventId: state.user.eventId
+});
+
+export default connect(mapStateToProps)(Main);

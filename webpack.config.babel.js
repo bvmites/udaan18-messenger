@@ -61,7 +61,7 @@ if (env === 'production') {
   devConfig.devServer = {
     compress: true,
     clientLogLevel: 'none',
-    contentBase: path.resolve('./dist'),
+    contentBase: path.resolve('./docs'),
     publicPath: '/',
     quiet: true,
     hot: true,
@@ -80,7 +80,7 @@ plugins.push(new webpack.LoaderOptionsPlugin(loaderOptionsConfig));
 export default Object.assign({
   entry: './src/js/index.js',
   output: {
-    path: path.resolve('./dist'),
+    path: path.resolve('./docs'),
     filename: 'index.js',
     publicPath: '/'
   },
