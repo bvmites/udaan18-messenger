@@ -1,1 +1,1 @@
-export const apiBaseUrl = 'http://udaan18-messenger.herokuapp.com';
+export const apiBaseUrl = 'https://udaan18-messenger.herokuapp.com';
