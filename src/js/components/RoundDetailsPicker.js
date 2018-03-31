@@ -79,7 +79,7 @@ class RoundDetailsPicker extends Component {
               value={this.props.dateTime}
             />
           </FormField>
-          <FormField label='Venue'>
+          <FormField label='Venue (20 characters max.)'>
             <TextInput value={this.props.venue}
               onDOMChange={e => this._onVenueChange(e.target.value)} />
           </FormField>
