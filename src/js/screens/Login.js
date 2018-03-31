@@ -50,8 +50,25 @@ class Login extends Component {
             align='center'
           >
             <Heading tag='h1' strong={true}>Instructions</Heading>
-            <Paragraph align='center' size='large'>
-              Instruction 1
+            <Paragraph align='center' size='large' margin='small'>
+              1. Use the credentials provided to you by email or SMS to log in.
+            </Paragraph>
+            <Paragraph align='center' size='large' margin='small'>
+              2. Use the check boxes beside participant names to select them for the next round.
+            </Paragraph>
+            <Paragraph align='center' size='large' margin='small'>
+              3. Please verify the current round before clicking on next.
+            </Paragraph>
+            <Paragraph align='center' size='large' margin='small'>
+              4. Select date and time carefully, verify the names of selected
+              participants on the left side, and click on submit to send messages.
+            </Paragraph>
+            <Paragraph align='center' size='large' margin='small'>
+              5. After submitting, wait for a while to get delivery status.
+              <b>The status is updated automatically. You no longer need to refresh.</b>
+            </Paragraph>
+            <Paragraph align='center' size='large' margin='small'>
+              6. To logout, simply close the browser window.
             </Paragraph>
           </Section>
         </Article>
