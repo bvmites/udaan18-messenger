@@ -87,6 +87,9 @@ class RoundDetailsPicker extends Component {
           <Paragraph margin='none'>
             {this.props.error}
           </Paragraph>
+          <Paragraph size='large'>
+            WARNING: Clicking submit will move the event to next round.
+          </Paragraph>
         </FormFields>
       </Form>
     );

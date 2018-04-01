@@ -75,7 +75,7 @@ export function promoteParticipants(ids, eventId, date, time, venue, done) {
     return { type: PARTICIPANTS_PROMOTE_ERROR, error: 'Please type in a venue' };
   }
 
-  if (venue.length >= 20) {
+  if (venue.length > 20) {
     return { type: PARTICIPANTS_PROMOTE_ERROR, error: 'Venue must be 20 characters or less.' };
   }
 
