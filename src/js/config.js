@@ -1,1 +1,1 @@
-export const apiBaseUrl = 'https://aura-personatica-2018.herokuapp.com';
+export const apiBaseUrl = 'https://knowhow19-backend.herokuapp.com';
